@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {makeStyles} from "@material-ui/core";
 import Grid from '@material-ui/core/Grid';
 import MovieBox from "./components/MoviesBox";
+import Box from '@material-ui/core/Box';
 
 function App() {
 
@@ -17,6 +18,9 @@ function App() {
         },
         root:{
             flexGrow: 1
+        },
+        moviebox:{
+            width: 800
         }
     }));
 
@@ -32,14 +36,17 @@ function App() {
              <Grid item md={12}>
                  <Home/>
              </Grid>
-            <Grid container spacing={10}>
-             <Grid item md={6} sm={4}>
-                <Search results = {updateResults}/>
-                 <Grid item md={12} sm={2}>
-                     <MovieBox results = {results}/>
-                 </Grid>
-             </Grid>
+            <Grid container>
+                <Box m={3} pl={3}>
+                    <Search results = {updateResults}/>
+                </Box>
             </Grid>
+             <Grid container >
+                 <Box m={3} pl={3} className={classes.moviebox}>
+                 <MovieBox results = {results}/>
+                 </Box>
+             </Grid>
+
          </div>
      </div>
       );

@@ -24,6 +24,7 @@ const Search = (props) => {
                 //check why results are not being updated
                 setResults([response.data.Search])
                 props.results(response.data.Search)
+                console.log(response)
             }).catch(err => {
                 console.log(err)
             })
@@ -31,7 +32,9 @@ const Search = (props) => {
 
     const submitSearch = (e) => {
             e.preventDefault();
-            getResults()
+            if(search) {
+                getResults()
+            }
         }
 
         return (
